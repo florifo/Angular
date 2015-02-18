@@ -1,0 +1,24 @@
+<div class="jumbotron text-center">
+	<form name="form" class="css-form .col-md-12" novalidate>
+
+		<div class="form-group">
+			<label for="postalcode">Ingrese su codigo Postal para conocer el pron&oacute;stico del tiempo</label>
+			<br>
+
+			<input type="text" ng-model="postalcode" type="number" min="0" max="99999" integer>
+	    	<span ng-show="form.size.$error.min || form.size.$error.max"> Postal Code must have 5 digits</span>
+		
+			<select name="" id="" class="" ng-model="days">
+				<option value="" disabled selected>Days</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</div>
+		<div>
+			<a href="#clima/{{postalcode}}/{{days}}" class="btn btn-primary ">Ver Clima</a>
+		</div>
+	</form>
+</div>

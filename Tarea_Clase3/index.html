@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="origamiApp">
+
+<head>
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- ANGULAR.JS Y NG-ROUTE POR SEPARADO -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<body ng-controller="mainController" class="container-fluid">
+
+
+
+  <header class="text-center">
+
+    <a href="/">
+      <img class="ico ico-logo-header" alt="Academia Origami" src="images/logo.png" />
+    </a>
+    <h1 >Origami Pronostico</h1>
+  </header>
+
+  <section id="main">
+  
+    <!-- AQUI ES DONDE ANGULAR INSERTA LOS VIEWS-->
+    <div ng-view></div>
+    
+  </section>
+  
+  <footer class="text-center">
+   
+  </footer>
+  
+</body>
+
+</html>
