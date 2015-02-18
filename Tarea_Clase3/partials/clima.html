@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-	<h2>Forecast</h2>
+	<h2>Pron&oacute;stico del Tiempo</h2>
 	
 	<p>{{ message }} {{ clima.city.name }} , {{ clima.city.country }} </p>
 
@@ -8,15 +8,16 @@
 	<div class="panel-group">
 		<div ng-repeat="item in clima.list" class="panel panel-default ">
 
-			<div ng-if="$first" >
+			<div ng-show="$first" class="col-md-12">
 			  	<img src="http://openweathermap.org/img/w/{{ item.weather[0].icon }}.png" alt="{{ item.weather[0].description }} ">
-				<span>{{ date | date : 'EEEE, dd/MM' : fullDate}}</span>
-				<span class="text-right col-md-3"> {{ item.deg }}&deg; </span>
+				<span>{{ item.dt | date : 'EEEE, dd/MM' : fullDate}}</span>
+				<h3 class="text-center"> {{ item.deg }}&deg; </h3>
 			</div>
-
+			<span class="clearfix"></span>
 			<!-- <div class="panel-heading container-fluid" ng-click="showitem = !showitem" ng-if="$middle || $last"> -->
-			<!-- <div class="panel-heading container-fluid" ng-click="showitem = !showitem" ng-if="!$first"> -->
-			<div class="panel-heading container-fluid" ng-click="showitem = !showitem">
+			<div class="panel-heading container-fluid" ng-click="showitem = !showitem" ng-show="!$first">
+
+			<!-- <div class="panel-heading container-fluid" ng-click="showitem = !showitem"> -->
 				<div class="col-md-9">
 
 					<img src="http://openweathermap.org/img/w/{{ item.weather[0].icon }}.png" alt="{{ item.weather[0].description }} ">

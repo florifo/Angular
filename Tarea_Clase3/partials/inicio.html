@@ -1,14 +1,13 @@
 <div class="jumbotron text-center">
-	<form name="form" class="css-form .col-md-12" novalidate>
+	<form action="#clima/{{clima.postalcode}}/{{clima.days}}" name="formclima" class="css-form .col-md-12" novalidate>
 
 		<div class="form-group">
 			<label for="postalcode">Ingrese su codigo Postal para conocer el pron&oacute;stico del tiempo</label>
 			<br>
 
-			<input type="text" ng-model="postalcode" type="number" min="0" max="99999" integer>
-	    	<span ng-show="form.size.$error.min || form.size.$error.max"> Postal Code must have 5 digits</span>
+			<input type="number" name="postalcode" ng-model="clima.postalcode" ng-minlength="5" ng-maxlength="5" required>
 		
-			<select name="" id="" class="" ng-model="days">
+			<select name="days" id="" class="" ng-model="clima.days" required>
 				<option value="" disabled selected>Days</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -17,8 +16,12 @@
 				<option value="5">5</option>
 			</select>
 		</div>
+		<p ng-show="formclima.postalcode.$error.minlength || formclima.postalcode.$error.maxlength"> El Zipcode debe tener 5 digitos</p>
+		<p ng-show="formclima.postalcode.$error.number && !formclima.postalcode.$pristine"> Digite un valor numerico </p>
+		<p ng-show="formclima.days.$invalid && !formclima.days.$pristine"> Por favor ingrese una cantidad de dias validos </p>
 		<div>
-			<a href="#clima/{{postalcode}}/{{days}}" class="btn btn-primary ">Ver Clima</a>
+			<a href="#clima/{{clima.postalcode}}/{{clima.days}}" class="btn btn-primary" ng-disabled="formclima.$invalid">Ver Pronostico</a>
+			<!-- <button type="submit" class="btn btn-primary" ng-disabled="formclima.$invalid">Ver Clima</button> -->
 		</div>
 	</form>
 </div>
